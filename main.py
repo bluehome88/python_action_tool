@@ -8,6 +8,13 @@ def main():
 
 	while True:
 		pyautogui.click(x=int(sys.argv[1]), y=int(sys.argv[2]), clicks=1, interval=1, button='left')
+		s = random.randint(5, 10)
+		for i in range(1, s):
+			pyautogui.scroll(10 * random.randint(5, 10))
+			time.sleep(0.3)
+		for i in range(1, s):
+			pyautogui.scroll(-10 * random.randint(5, 10))
+			time.sleep(0.3)
 		time.sleep(1)
 
 if __name__ == "__main__":
