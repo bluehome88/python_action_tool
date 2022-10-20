@@ -6,15 +6,16 @@ import random
 def main():
 	n = len(sys.argv)
 
-	#x = int(sys.argv[1])
+	#x = int(sys.argv[1])					
 	#y = int(sys.argv[2])
 
-	x = random.randint(1800, 2000)
-	y = random.randint(100, 500)
 	click_interval = 1
 	pyautogui.FAILSAFE = False
 
 	while True:
+		x = random.randint(1800, 2000)
+		y = random.randint(100, 500)
+
 		pyautogui.moveTo(x, y, 1)
 		s = random.randint(1, 8)
 		pyautogui.click(x, y, clicks=s, interval=click_interval, button='left')
@@ -44,21 +45,14 @@ def main():
 			print( "Key: down" )
 		
 def AltTab():
-	s = random.randint(2, 4)
 
-	# Change Window
-	if( s % 2 == 0 ):
-		count = random.randint(1, 10)
-		with pyautogui.hold('ctrl'):
-			for i in range(1, count):
-				pyautogui.press('tab')
-				print( "Tab Changed: Ctrl+Tab" )
-	else:		
-		count = random.randint(1, 3)
-		with pyautogui.hold('command'):
-			for i in range(1, count):
-				pyautogui.press('tab')
-				print( "Window changed: Windows + Tab" )
+	# Change Tab
+	count = random.randint(1, 8)
+	pyautogui.keyDown('ctrl')
+	for i in range(1, count):
+		pyautogui.press('tab')
+		print( "Tab Changed: Ctrl+Tab" )
+	pyautogui.keyUp('ctrl')	
 
 if __name__ == "__main__":
     main()
