@@ -15,7 +15,24 @@ def main():
 		for i in range(1, s):
 			pyautogui.scroll(-10 * random.randint(5, 10))
 			time.sleep(0.3)
+
+		AltTab()
 		time.sleep(1)
+
+def AltTab():
+	s = random.randint(1, 10)
+
+	# Change Window
+	if( s % 2 == 0 ):
+		count = random.randint(1, 10)
+		with pyautogui.hold('ctrl'):
+			for i in range(1, count):
+				pyautogui.press('tab')
+	else:		
+		count = random.randint(2, 4)
+		with pyautogui.hold('command'):
+			for i in range(1, count):
+				pyautogui.press('tab')
 
 if __name__ == "__main__":
     main()
