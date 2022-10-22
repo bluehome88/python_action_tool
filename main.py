@@ -9,12 +9,13 @@ def main():
 	#x = int(sys.argv[1])
 	#y = int(sys.argv[2])
 
-	x = random.randint(1800, 2000)
-	y = random.randint(100, 500)
 	click_interval = 1
 	pyautogui.FAILSAFE = False
 
 	while True:
+		x = random.randint(1800, 2000)
+		y = random.randint(100, 500)
+
 		pyautogui.moveTo(x, y, 1)
 		s = random.randint(1, 8)
 		pyautogui.click(x, y, clicks=s, interval=click_interval, button='left')
